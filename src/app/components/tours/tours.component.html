@@ -1,0 +1,16 @@
+<!-- src/app/components/tours/tours.component.html -->
+<section class="popular-tours">
+    <h2>Our Tour Packages</h2>
+    <div class="tours-grid">
+      <div class="tour-item" *ngFor="let tour of Tours">
+        <!-- <img [src]="tour.t_imageUrl" alt="{{tour.t_name}}"> -->
+        <h3>{{tour.tour_Name}}</h3>
+        <p>{{tour.tour_Destination}}</p>
+        <p>{{tour.tour_Description}}</p>
+        <p>${{tour.tour_Price}}</p>
+
+        
+      </div>
+    </div>
+  </section>
+  

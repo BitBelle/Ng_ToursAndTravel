@@ -1,0 +1,64 @@
+<div class="auth-container">
+  <div *ngIf="showSignUp">
+     <!-- Sign Up Form -->
+    <h2>Sign Up</h2>
+    <form (ngSubmit)="onSubmit('SIGNUP')" [formGroup]="signUpForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username">
+        <div *ngIf="signUpForm.get('username')?.touched && signUpForm.get('username')?.invalid">
+        <small *ngIf="signUpForm.get('username')?.errors?.['required']">Name is required</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        <div *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">
+          <small *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required</small>
+          <small *ngIf="signUpForm.get('email')?.errors?.['email']">Email is invalid</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+        <div *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid">
+          <small *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required</small>
+          <small *ngIf="signUpForm.get('password')?.errors?.['minlength']">Password must be at least 8 characters</small>
+          <small *ngIf="signUpForm.get('password')?.errors?.['pattern']">Password must contain: 1 uppercase letter, 1 lowercase letter, 1 number</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Login Form -->
+  <div *ngIf="!showSignUp">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit('LOGIN')" [formGroup]="signInForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        <div *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.invalid">
+          <small *ngIf="signInForm.get('email')?.errors?.['required']">Email is required</small>
+          <small *ngIf="signInForm.get('email')?.errors?.['email']">Email is invalid</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+        <div *ngIf="signInForm.get('password')?.touched && signInForm.get('password')?.invalid">
+          <small *ngIf="signInForm.get('password')?.errors?.['required']">Password is required</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="signInForm.invalid">Sign In</button>
+    </form>
+  </div>
+
+  <!-- Success or Error Messages -->
+  <div *ngIf="successMessage">
+    <p class="success-message">{{ successMessage }}</p>
+  </div>
+  <div *ngIf="errorMessage">
+    <p class="failure-message">{{ errorMessage }}</p>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+
+/* Hotels */
+.popular-hotels {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .popular-hotels h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .hotels-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .hotel-item {
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .hotel-item img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .hotel-item h3 {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  
+  .hotel-item p {
+    font-size: 16px;
+    color: #555;
+  }
+  
